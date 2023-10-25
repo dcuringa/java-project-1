@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codebreaker</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+<body>
+
+
+    <script>
+        const result = (Math.random() * 3 + Math.random() * 3 + Math.random() * 3);
+        let nums = 0;
+        let guesses = 7;
+        function compare()
+        {
+           
+           
+            nums = 0;
+            if(document.getElementByID('guess').innerHTML == result)
+            {
+                document.getElementByID('guess').textContent = "Correct!";
+            }
+            else
+            {
+                guesses -= 1;
+                document.getElementByID('clock').textContent = "Guesses remaining: " + guesses;
+            }
+            document.getElementById('guess').textContent = ' ';
+        }
+    </script>
+    <p id="clock" onload="document.getElementByID('clock').textContent = 'Guesses remaining: ' + guesses;"> This text should not be displaying. </p>
+    <p>
+        Current guess:
+    </p>
+    <p id="guess" onload="document.getElementById('guess') = result;">
+       
+    </p>
+    <button id="zero" onclick="document.getElementById('guess').textContent = document.getElementById('guess').textContent + '0'; nums += 1; if(nums >= 3){compare()};">
+        0
+    </button>
+    <button id="one" onclick="document.getElementById('guess').textContent = document.getElementById('guess').textContent + '1'; nums += 1; if(nums >= 3){compare()};">
+        1
+    </button>
+    <button id="two" onclick="document.getElementById('guess').textContent = document.getElementById('guess').textContent + '2'; nums += 1; if(nums >= 3){compare()};">
+        2
+    </button>
+    <button id="three" onclick="document.getElementById('guess').textContent = document.getElementById('guess').textContent + '3'; nums = nums + 1; if(nums >= 3){compare()};">
+        3
+    </button>
+    <button onclick="document.getElementById('guess').textContent = ' '; nums = 0">
+        Clear
+    </button>
+</body>
+</html>
