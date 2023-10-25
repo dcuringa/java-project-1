@@ -1,0 +1,11 @@
+html {
+    text-align: center;
+}
+
+#guess {
+    font-size: 48px;
+}
+
+#clock{
+    color: red;
+}
